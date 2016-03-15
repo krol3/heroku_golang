@@ -1,0 +1,34 @@
+https://devcenter.heroku.com/articles/getting-started-with-python#introduction
+
+pip install virtualenv
+
+#Prepare the app
+git clone https://github.com/heroku/python-getting-started.git
+$ cd python-getting-started
+
+#Deploy the app
+heroku create
+https://git.heroku.com/tranquil-hamlet-28520.git
+
+git push heroku master
+heroku ps:scale web=1
+heroku open
+
+#View logs
+heroku logs --tail
+
+#Define a Procfile
+
+#Scale the app
+heroku ps:scale web=0
+
+#Declare app dependencies
+
+pip install virtualenv
+http://docs.python-guide.org/en/latest/dev/virtualenvs/
+
+sudo apt-get install libpq-dev
+virtualenv venv
+pip install -r requirements.txt
+
+https://devcenter.heroku.com/articles/getting-started-with-python#push-local-changes

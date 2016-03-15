@@ -1,0 +1,142 @@
+https://devcenter.heroku.com/articles/getting-started-with-go#set-up
+
+# Please ensure that you have Ruby installed.
+wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+# setting the project
+GOPATH=~/repository/git-krol/heroku_golang
+export GOPATH
+PATH=$PATH:$GOPATH/bin
+
+go get github.com/heroku/go-getting-started/cmd/...
+... recursive
+
+#1 The rest of the tutorial assumes all commands are run from the root directory of the application which is located inside of your $GOPATH,
+cd $GOPATH/src/github.com/heroku/go-getting-started
+
+#Deploy the app
+heroku create
+git push heroku master
+heroku open   
+
+https://floating-brook-21949.herokuapp.com/
+
+#View logs
+heroku logs --tail
+heroku ps
+
+#Define a Procfile
+like a docker composer, thread process
+
+#Scale the app
+heroku ps:scale web=0
+
+#Declare app dependencies
+Godeps/Godeps.json
+
+go get github.com/tools/godep
+go install
+godep save
+godep save ./...
+copy their source code into vendor/
+
+Heroku reads this file, installs the appropriate Go version and compiles your code using go install ./...
+
+#Run the app locally
+heroku local web
+
+http://localhost:5000/
+forego | starting web.1 on port 5000
+
+#Push local changes
+https://devcenter.heroku.com/articles/getting-started-with-go#push-local-changes
+
+go get -u github.com/tools/godep
+godep restore
+go get -u github.com/russross/blackfriday
+
+godep save ./...
+
+* recompile and start the program
+ go install ./...
+heroku local
+
+*git
+git add -A .
+git commit -m "Markdown demo dependency"
+git push heroku master
+heroku open mark
+
+#Provision add-ons
+heroku addons:create papertrail
+heroku addons
+
+#Start a one off dyno
+ heroku run bash
+ exit
+
+#Dynos and the Dyno Manager
+https://devcenter.heroku.com/articles/dynos
+
+#Define config vars
+go install ./...
+heroku local
+
+heroku config:set REPEAT=10
+https://floating-brook-21949.herokuapp.com/mark
+heroku config
+#DEPLOY
+https://floating-brook-21949.herokuapp.com/repeat
+heroku open repeat
+
+#Use a database
+ heroku addons:create heroku-postgresql:hobby-dev
+This creates a database and sets the $DATABASE_URL environment variable
+heroku config
+=== floating-brook-21949 Config Vars
+DATABASE_URL: postgres://utuhbgseyfvari:pXtdmSwYbDm1YI2NYn94G2rfjq@ec2-54-235-134-167.compute-1.amazonaws.com:5432/d8tcaf7k7jpm4j
+REPEAT:  
+
+----------------------
+ heroku pg
+ === DATABASE_URL
+Plan:        Hobby-dev
+Status:      Available
+Connections: 0/20
+PG Version:  9.4.4
+Created:     2016-03-15 22:31 UTC
+Data Size:   6.5 MB
+Tables:      0
+Rows:        0/10000 (In compliance)
+Fork/Follow: Unsupported
+Rollback:    Unsupported
+Add-on:      postgresql-fitted-39370
+
+--------- add a route /db ----
+go get -u github.com/lib/pq
+
+Save the dependencies with godep, git push
+S godep save ./...
+$ git add -A .
+
+    modified:   Godeps/Godeps.json
+    modified:   cmd/go-getting-started/main.go
+    Godeps/_workspace/src/github.com/lib/
+
+$ git commit -am "/db"
+$ git push heroku master
+$ heroku open db
+
+--------- END ------------
+https://devcenter.heroku.com/articles/getting-started-with-go#next-steps
+
+------------ deploy app in UNIX OS - Procfile
+foreman
+gem install foreman
+
+http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
+http://adam.herokuapp.com/past/2011/5/9/applying_the_unix_process_model_to_web_apps/
+
+/sbin/init daemon
+
+Procfile vs composer
